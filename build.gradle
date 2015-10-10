@@ -1,12 +1,7 @@
 apply plugin: 'java'
 
-
-repositories {
-    maven { url "https://jitpack.io" }
-}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile "commons-io:commons-io:2.4"
-    compile 'com.github.User:Repo:Tag'
 }

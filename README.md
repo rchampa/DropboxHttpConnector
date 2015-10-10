@@ -1,6 +1,8 @@
 Dropbox HTTP API v2
 ====================
 
+This library let you use [HTTP Dropbox API](https://www.dropbox.com/developers/documentation/http) while [Java client v2](https://www.dropbox.com/developers/documentation/java) is not ready yet.
+
 ### Gradle
 
 Import to android studio:
@@ -34,7 +36,4 @@ License
 
 
  [1]: http://square.github.io/okhttp
- [2]: https://github.com/square/okhttp/wiki
- [3]: https://search.maven.org/remote_content?g=com.squareup.okhttp&a=okhttp&v=LATEST
- [4]: https://search.maven.org/remote_content?g=com.squareup.okhttp&a=mockwebserver&v=LATEST
- [snap]: https://oss.sonatype.org/content/repositories/snapshots/
+

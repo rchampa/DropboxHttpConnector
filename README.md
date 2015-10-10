@@ -21,7 +21,9 @@ allprojects {
     }
 }
 
-compile 'com.github.rchampa:DropboxHttpConector:1.0.4'
+dependencies {
+	compile 'com.github.rchampa:DropboxHttpConector:1.0.4'
+}
 ```
 
 

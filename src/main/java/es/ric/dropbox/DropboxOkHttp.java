@@ -116,4 +116,26 @@ public class DropboxOkHttp {
         Response response = client.newCall(request).execute();
         return response.body().string();
     }
+
+    public String deleteFolder(String path_dropbox_folder) throws IOException{
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
+        JSONObject data = new JSONObject();
+        data.put("path",path_dropbox_folder);
+        String json = data.toString();
+
+        RequestBody body = RequestBody.create(JSON, json);
+        Request request = new Request.Builder()
+                .url("https://api.dropboxapi.com/2/files/delete")
+                .addHeader("Authorization", "Bearer "+access_token)
+                .post(body)
+                .build();
+
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    public String deleteFile(String path_dropbox_file) throws IOException{
+        return deleteFolder(path_dropbox_file);
+    }
 }

@@ -3,6 +3,13 @@ Dropbox HTTP API v2
 
 This library let you use [HTTP Dropbox API](https://www.dropbox.com/developers/documentation/http) while [Java client v2](https://www.dropbox.com/developers/documentation/java) is not ready yet.
 
+How to use
+==========
+*   [List files of folder](https://github.com/rchampa/DropboxHttpConector/blob/master/src/main/java/es/ric/dropbox/TestListFolder.java)
+*   [Create new folder](https://github.com/rchampa/DropboxHttpConector/blob/master/src/main/java/es/ric/dropbox/TestCreateFolder.java)
+*   [Download file](https://github.com/rchampa/DropboxHttpConector/blob/master/src/main/java/es/ric/dropbox/TestDownload.java)
+*   [Upload file](https://github.com/rchampa/DropboxHttpConector/blob/master/src/main/java/es/ric/dropbox/TestUpload.java)
+
 ### Gradle
 
 Import to android studio:

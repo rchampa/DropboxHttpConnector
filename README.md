@@ -5,6 +5,13 @@ Dropbox HTTP API v2
 
 Import to android studio:
 ```groovy
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
 compile 'com.github.rchampa:DropboxHttpConector:1.0.3'
 ```
 

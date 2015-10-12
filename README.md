@@ -5,10 +5,10 @@ This library let you use [HTTP Dropbox API](https://www.dropbox.com/developers/d
 
 How to use
 ==========
-*   [List files of folder](https://github.com/rchampa/DropboxHttpConector/blob/master/src/main/java/es/ric/dropbox/TestListFolder.java)
-*   [Create new folder](https://github.com/rchampa/DropboxHttpConector/blob/master/src/main/java/es/ric/dropbox/TestCreateFolder.java)
-*   [Download file](https://github.com/rchampa/DropboxHttpConector/blob/master/src/main/java/es/ric/dropbox/TestDownload.java)
-*   [Upload file](https://github.com/rchampa/DropboxHttpConector/blob/master/src/main/java/es/ric/dropbox/TestUpload.java)
+*   [List files of folder](https://github.com/rchampa/DropboxHttpConnector/blob/master/src/main/java/es/ric/dropbox/TestListFolder.java)
+*   [Create new folder](https://github.com/rchampa/DropboxHttpConnector/blob/master/src/main/java/es/ric/dropbox/TestCreateFolder.java)
+*   [Download file](https://github.com/rchampa/DropboxHttpConnector/blob/master/src/main/java/es/ric/dropbox/TestDownload.java)
+*   [Upload file](https://github.com/rchampa/DropboxHttpConnector/blob/master/src/main/java/es/ric/dropbox/TestUpload.java)
 
 ### Gradle
 
@@ -22,7 +22,7 @@ allprojects {
 }
 
 dependencies {
-	compile 'com.github.rchampa:DropboxHttpConector:1.0.4'
+	compile 'com.github.rchampa:DropboxHttpConnector:1.0.4'
 }
 ```
 

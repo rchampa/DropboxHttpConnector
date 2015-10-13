@@ -7,7 +7,8 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 
-import org.json.simple.JSONObject;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,10 +36,13 @@ public class DropboxOkHttp {
         RequestBody body = RequestBody.create(OCTET_STREAM, content);
 
         JSONObject dropbox_json = new JSONObject();
-        dropbox_json.put("path", dropbox_path);
-        dropbox_json.put("mode", mode);
-        dropbox_json.put("autorename", autorename);
-        dropbox_json.put("mute", mute);
+        try {
+            dropbox_json.put("path", dropbox_path);
+            dropbox_json.put("mode", mode);
+            dropbox_json.put("autorename", autorename);
+            dropbox_json.put("mute", mute);
+        }
+        catch(JSONException e){}
 
         String dropbox_arg = dropbox_json.toString();
 
@@ -60,13 +64,17 @@ public class DropboxOkHttp {
         MediaType JSON = MediaType.parse("");
 
         JSONObject data = new JSONObject();
-        data.put("path",path_dropbox_file);
+        try{
+            data.put("path", path_dropbox_file);
+        }
+        catch(JSONException e){}
+
         String json = data.toString();
 
         RequestBody body = RequestBody.create(JSON, "");
         Request request = new Request.Builder()
                 .url("https://content.dropboxapi.com/2/files/download")
-                .addHeader("Authorization", "Bearer "+access_token)
+                .addHeader("Authorization", "Bearer " + access_token)
                 .addHeader("Dropbox-API-Arg", json)
                 .post(body)
                 .build();
@@ -82,8 +90,12 @@ public class DropboxOkHttp {
     public String listFolder(String path_folder, boolean recursive) throws IOException{
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         JSONObject data = new JSONObject();
-        data.put("path",path_folder);
-        data.put("recursive",recursive);
+        try{
+            data.put("path",path_folder);
+            data.put("recursive",recursive);
+        }
+        catch(JSONException e){}
+
         String json = data.toString();
 
         RequestBody body = RequestBody.create(JSON, json);
@@ -102,7 +114,11 @@ public class DropboxOkHttp {
 
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         JSONObject data = new JSONObject();
-        data.put("path",path_folder);
+        try{
+            data.put("path",path_folder);
+        }
+        catch(JSONException e){}
+
         String json = data.toString();
 
         RequestBody body = RequestBody.create(JSON, json);
@@ -121,7 +137,10 @@ public class DropboxOkHttp {
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
         JSONObject data = new JSONObject();
-        data.put("path",path_dropbox_folder);
+        try{
+            data.put("path",path_dropbox_folder);
+        }
+        catch(JSONException e){}
         String json = data.toString();
 
         RequestBody body = RequestBody.create(JSON, json);

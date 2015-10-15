@@ -13,6 +13,10 @@ public class TestCreateFolder {
 
             String response = dropbox.createFolder("/upload/newfolder");
             System.out.println(response);
+            //Posible response
+            //{"name": "newfolder", "path_lower": "/upload/newfolder", "id": "id:GKtLyTal3OAAAAAAAAAADA"}
+            //{"error_summary": "path/conflict/folder/", "error": {".tag": "path", "path": {".tag": "conflict", "conflict": {".tag": "folder"}}}}
+
         }
         catch (Exception e){
             e.printStackTrace();

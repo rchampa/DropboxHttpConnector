@@ -157,4 +157,43 @@ public class DropboxOkHttp {
     public String deleteFile(String path_dropbox_file) throws IOException{
         return deleteFolder(path_dropbox_file);
     }
+
+    /**
+     *
+     @param path String The path in the user's Dropbox to search. Should probably be a folder.
+     @param query String The string to search for. The search string is split on spaces into multiple tokens. For file name searching, the last token is used for prefix matching (i.e. "bat c" matches "bat cave" but not "batman car").
+     @param start int The starting index within the search results (used for paging). The default for this field is 0.
+     @param max_results int The maximum number of search results to return. The default for this field is 100.
+     @param mode String The search mode (filename, filename_and_content, or deleted_filename).
+
+     * @return String Response of the query
+     * @throws IOException
+     */
+    public String search(String path, String query, int start, int max_results, String mode) throws IOException{
+
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        JSONObject data = new JSONObject();
+        try{
+            data.put("path",path);
+            data.put("query",query);
+            data.put("start",start);
+            data.put("max_results",max_results);
+            data.put("mode",mode);
+        }
+        catch(JSONException e){}
+
+        String json = data.toString();
+
+        RequestBody body = RequestBody.create(JSON, json);
+        Request request = new Request.Builder()
+                .url("https://api.dropboxapi.com/2/files/search")
+                .addHeader("Authorization","Bearer "+access_token)
+                .post(body)
+                .build();
+
+
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
 }
